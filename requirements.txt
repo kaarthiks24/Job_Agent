@@ -1,0 +1,9 @@
+ollama
+streamlit
+pymupdf      
+requests
+sendgrid
+schedule
+python-dotenv
+openai    
+langchain
