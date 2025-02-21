@@ -10,8 +10,8 @@ from job_searcher import JobSearcher
 from database import DatabaseManager
 
 # Initialize components
-resume_parser = ResumeParser(st.secrets["gemini"]["api_key"])
-job_matcher = JobMatcher(st.secrets["gemini"]["api_key"])
+resume_parser = ResumeParser(st.secrets["gemini_api_key"])
+job_matcher = JobMatcher(st.secrets["gemini_api_key"])
 job_searcher = JobSearcher("8940cc9a", "0cf476c449a223260cd2e5f5a897e49e", job_matcher)
 db = DatabaseManager()
 
