@@ -1,10 +1,14 @@
 # job_matcher.py
 from ollama import Client
+import google.generativeai as genai
 
 class JobMatcher:
-    def __init__(self, ollama_host='http://localhost:11434', model='qwen2.5-coder'):
-        self.client = Client(host=ollama_host)
-        self.model = model
+    # def __init__(self, ollama_host='http://localhost:11434', model='qwen2.5-coder'):
+    #     self.client = Client(host=ollama_host)
+    #     self.model = model
+    def __init__(self, api_key):
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel('gemini-1.5-flash')
 
     def compute_match_score(self, job_description, skills):
         """Compute match score between job description and skills using Ollama LLM."""

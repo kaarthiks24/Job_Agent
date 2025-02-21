@@ -1,11 +1,14 @@
 # resume_parser.py
 import json
 from ollama import Client
-
+import google.generativeai as genai
 class ResumeParser:
-    def __init__(self, ollama_host='http://localhost:11434', model='qwen2.5-coder'):
-        self.client = Client(host=ollama_host)
-        self.model = model
+    # def __init__(self, ollama_host='http://localhost:11434', model='qwen2.5-coder'):
+    #     self.client = Client(host=ollama_host)
+    #     self.model = model
+    def __init__(self, api_key):
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel('gemini-1.5-flash')
 
     def parse_resume(self, resume_text):
         """Parse resume text using Ollama LLM and return structured data."""
